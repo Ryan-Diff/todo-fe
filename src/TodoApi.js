@@ -5,7 +5,7 @@ export function signUp(userData) {
     try {
         return request.post(`${URL}/auth/signup`, userData);
     } catch(e) {
-        return
+        return { error: e.message }
     }
 }
 
@@ -13,7 +13,7 @@ export function signIn(userData) {
     try {
         return request.post(`${URL}/auth/signin`, userData);
     } catch(e) {
-        return
+        return { error: e.message }
     }
 }
 
