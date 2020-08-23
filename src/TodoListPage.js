@@ -69,7 +69,18 @@ class ListPage extends React.Component {
 
   render() {
     return (
+        
         <div>
+              <div>
+                Create a New Task
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        Description: 
+                        <input onChange={this.handleTodoChange}/>
+                    </label>
+                    <button>Create Task</button>
+                </form>
+            </div>
             Your To-Do List
             <div className="todos">
                 {
@@ -81,7 +92,7 @@ class ListPage extends React.Component {
                             <button onClick={() => this.handleDelete(todo.id)}>Delete Task</button>
                             </div>
                         } else {
-                            return <div className="todo line-through" key={`${todo.id}`}>
+                            return <div className="completed" key={`${todo.id}`}>
                             <p>Task: {todo.task}</p>
                             <button onClick={() => this.handleDelete(todo.id)}>Delete Task</button>
                             </div>
@@ -90,16 +101,7 @@ class ListPage extends React.Component {
                     })
                 }
             </div>
-            <div>
-                Create a New Task
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Description: 
-                        <input onChange={this.handleTodoChange}/>
-                    </label>
-                    <button>Create Task</button>
-                </form>
-            </div>
+          
         </div>
     )
 }
